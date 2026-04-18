@@ -1,2 +1,6 @@
 .agents/
 .specfy/
+.codex
+.env
+.vscode/
+__pycache__/
