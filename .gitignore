@@ -5,3 +5,27 @@
 .vscode/
 __pycache__/
 .idea
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local secrets and env files
+.env.*
+!.env-example
+
+# Logs and OS/editor files
+*.log
+.DS_Store

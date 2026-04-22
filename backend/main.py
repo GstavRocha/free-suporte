@@ -1,7 +1,8 @@
-# preciso ao menos importar para a main para conseguir depurar
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
+from sqlalchemy import text
+from sqlmodel import Session
 
-from config.dbconnect import database_url
+from core.dbconnect import get_session
 
 app = FastAPI()
 
@@ -9,7 +10,7 @@ app = FastAPI()
 async def test():
     return {"message": "Hello World"}
 
-# @app.get("/health/db")
-# async def database_health():
-#     return {"database": "connected" if check_connection() else "disconnected"}
-
+@app.get("/health/db")
+def database_health(session: Session = Depends(get_session)):
+    session.exec(text("SELECT 1"))
+    return {"database": "connected"}
