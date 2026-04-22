@@ -1,3 +1,3 @@
-from  .dbconnect import check_connection, get_session
+from  .db import check_connection, get_session
 
 __all__ = ['check_connection', 'get_session']
